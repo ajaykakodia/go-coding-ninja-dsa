@@ -137,3 +137,14 @@ func reverseLinkedListIte(head *node) *node {
 
 	return head
 }
+
+func midPointOfLinkedList(head *node) *node {
+
+	fastMover, slowMover := head, head
+	for fastMover.next != nil && fastMover.next.next != nil {
+		slowMover = slowMover.next
+		fastMover = fastMover.next.next
+	}
+
+	return slowMover
+}

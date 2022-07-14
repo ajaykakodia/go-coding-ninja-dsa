@@ -12,7 +12,6 @@ func main() {
 	fmt.Println("message from linked list")
 	in := bufio.NewScanner(os.Stdin)
 	in.Scan()
-
 	line := in.Text()
 	strarr := strings.Split(line, " ")
 	var head, currentNode *node
@@ -35,9 +34,12 @@ func main() {
 	}
 	fmt.Println(arr)
 	printLinkedList(head)
+	sortedLinkedList := mergeSort(head)
+	printLinkedList(sortedLinkedList)
 	l := length(head)
 	fmt.Println("length of linked list :", l)
-
+	midPoint := midPointOfLinkedList(head)
+	fmt.Println("midPoint of linked list :", midPoint.data)
 	head = deleteNodeFromIthPlace(head, 2)
 	printLinkedList(head)
 	head = deleteNodeFromIthPlace(head, 0)
